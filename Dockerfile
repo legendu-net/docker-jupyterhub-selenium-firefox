@@ -6,8 +6,8 @@ FROM dclong/jupyterhub
 
 ARG GECKODRIVER_VERSION=0.25.0
 ARG URL=https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
-RUN apt-get update -y \
-    && apt-get install -y xvfb firefox \
+RUN apt-get -y update \
+    && apt-get -y install xvfb firefox \
     && curl -L $URL -o /tmp/geckodriver.tar.gz \
     && tar -C /opt -zxf /tmp/geckodriver.tar.gz \
     && rm /tmp/geckodriver.tar.gz \
